@@ -14,9 +14,6 @@ public class BirdMovement : MonoBehaviour
 
     [Header("Mouse")] 
     [SerializeField, Range(0.01f, 5f)]private float _mouseSensitivity = 1f;
-
-    [Header("Distance From Center")]
-    private Vector3 _centerPosition;
     private Vector3 _mousePosition;
 
 
