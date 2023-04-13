@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Background Tilemap
+  - Collision Tilemap
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background Tilemap
+    uniqueID: 3012027479
+    locked: 0
+  - name: Collision Tilemap
+    uniqueID: 3854197007
+    locked: 0
+  - name: Forground Tilemap
+    uniqueID: 2491921075
     locked: 0
