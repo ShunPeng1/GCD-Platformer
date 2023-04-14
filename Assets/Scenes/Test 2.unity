@@ -1038,12 +1038,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &397381299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1060,8 +1060,8 @@ MonoBehaviour:
   _feetGroundCheckRadius: 0.05
   _groundLayerMask:
     serializedVersion: 2
-    m_Bits: 0
-  _movementSpeed: 1
+    m_Bits: 1024
+  _movementSpeed: 10
 --- !u!1 &1259690482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,8 +1187,8 @@ MonoBehaviour:
   _feetGroundCheckRadius: 0.05
   _groundLayerMask:
     serializedVersion: 2
-    m_Bits: 0
-  _mouseSensitivity: 1
+    m_Bits: 1024
+  _mouseSensitivity: 25
 --- !u!61 &1259690487
 BoxCollider2D:
   m_ObjectHideFlags: 0

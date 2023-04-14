@@ -11,7 +11,7 @@ public class CrapMovement : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
 
     [Header("Movement")] 
-    [SerializeField, Range(0.01f, 5f)] private float _movementSpeed = 1f;
+    [SerializeField] private float _movementSpeed = 1f;
     
     
 
@@ -20,7 +20,7 @@ public class CrapMovement : MonoBehaviour
     private Animator _animatorController;
     private bool _isMove;
     private bool _isGround;
-    private bool _isFacingLeft;
+    private bool _isFacingRight;
     private static readonly int IsMove = Animator.StringToHash("IsMove");
     private static readonly int IsGround = Animator.StringToHash("IsGround");
 
@@ -47,9 +47,10 @@ public class CrapMovement : MonoBehaviour
     private void Movement()
     {
         float x = Input.GetAxis("Horizontal"), y = Input.GetAxis("Vertical");
-        _rigidbody2D.AddForce(new Vector2(x,y) * _movementSpeed, ForceMode2D.Impulse);
+        //_rigidbody2D.AddForce(new Vector2(x,y) * _movementSpeed, ForceMode2D.Force);
+        _rigidbody2D.velocity = new Vector2(x, 0) * _movementSpeed;
         
-        _isFacingLeft = x == 0 ? _isFacingLeft : x < 0;
+        _isFacingRight = x == 0 ? _isFacingRight : x > 0;
         _isMove = new Vector3(x, y, 0).magnitude > 0;
     }
     private void GroundCheck()
@@ -60,7 +61,7 @@ public class CrapMovement : MonoBehaviour
 
     private void VisualizeAnimation()
     {
-        _spriteRenderer.flipX = _isFacingLeft;
+        _spriteRenderer.flipX = _isFacingRight;
         _animatorController.SetBool(IsGround, _isGround);
         _animatorController.SetBool(IsMove, _isMove);
     }

@@ -13,7 +13,7 @@ public class BirdMovement : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
 
     [Header("Mouse")] 
-    [SerializeField, Range(0.01f, 5f)]private float _mouseSensitivity = 1f;
+    [SerializeField]private float _mouseSensitivity = 1f;
     private Vector3 _mousePosition;
 
 
@@ -49,9 +49,9 @@ public class BirdMovement : MonoBehaviour
     private void Movement()
     {
         float x = Input.GetAxis("Mouse X"), y = Input.GetAxis("Mouse Y");
-        _mousePosition += new Vector3(x, y, 0) * _mouseSensitivity;
-        _rigidbody2D.MovePosition( _mousePosition);
-
+        //_mousePosition += new Vector3(x, y, 0) * _mouseSensitivity;
+        _rigidbody2D.velocity = new Vector2(x, y) * _mouseSensitivity;
+            
         _isFacingLeft = x == 0 ? _isFacingLeft : x < 0;
         _isMove = new Vector3(x, y, 0).magnitude > 0;
     }
