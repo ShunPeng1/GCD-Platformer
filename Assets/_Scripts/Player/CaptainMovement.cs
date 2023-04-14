@@ -6,7 +6,7 @@ public class CaptainMovement : MonoBehaviour
 {
     [Header("Physics")] 
     [SerializeField] private Transform _feet;
-    [SerializeField] private float _feetGroundCheckRadius = 1f;
+    [SerializeField] private Vector2 _groundCheckBoxSize = new Vector2(0.01f, 0.01f);
     [SerializeField] private LayerMask _groundLayerMask;
     private Rigidbody2D _rigidbody2D;
 
@@ -85,8 +85,8 @@ public class CaptainMovement : MonoBehaviour
     private void GroundCheck()
     {
         if (_isJumping) return;
-        
-        var hit = Physics2D.OverlapCircle(_feet.position, _feetGroundCheckRadius, _groundLayerMask);
+        var hit = Physics2D.OverlapBox(_feet.position, _groundCheckBoxSize, 0, _groundLayerMask);
+        //var hit = Physics2D.OverlapCircle(_feet.position, _feetGroundCheckRadius, _groundLayerMask);
         _isGround = hit != null;
         
     }
@@ -101,6 +101,6 @@ public class CaptainMovement : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(_feet.position, _feetGroundCheckRadius);
+        Gizmos.DrawWireCube(_feet.position, _groundCheckBoxSize);
     }
 }

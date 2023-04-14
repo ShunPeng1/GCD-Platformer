@@ -1269,6 +1269,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 75093526421077336, guid: 7c9f45f3a076d8046a6f980fdb8e5ade, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 75093526543830143, guid: 7c9f45f3a076d8046a6f980fdb8e5ade, type: 3}
       propertyPath: m_Name
       value: Captain
@@ -1321,6 +1325,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 75093526543830405, guid: 7c9f45f3a076d8046a6f980fdb8e5ade, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 75093526543830406, guid: 7c9f45f3a076d8046a6f980fdb8e5ade, type: 3}
       propertyPath: _jumpForce
       value: 16
@@ -1328,6 +1336,14 @@ PrefabInstance:
     - target: {fileID: 75093526543830406, guid: 7c9f45f3a076d8046a6f980fdb8e5ade, type: 3}
       propertyPath: _jumpCooldown
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 75093526543830406, guid: 7c9f45f3a076d8046a6f980fdb8e5ade, type: 3}
+      propertyPath: _groundCheckBoxSize.x
+      value: 0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 75093526543830406, guid: 7c9f45f3a076d8046a6f980fdb8e5ade, type: 3}
+      propertyPath: _groundCheckBoxSize.y
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9f45f3a076d8046a6f980fdb8e5ade, type: 3}
