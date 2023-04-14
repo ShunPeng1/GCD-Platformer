@@ -13,7 +13,7 @@ public class BirdMovement : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
 
     [Header("Mouse")] 
-    [SerializeField]private float _mouseSensitivity = 1f;
+    [SerializeField] private float _mouseSensitivity = 1f;
     private Vector3 _mousePosition;
 
 
