@@ -13,14 +13,16 @@ public class CaptainMovement : MonoBehaviour
     [Header("Movement")] 
     [SerializeField] private float _movementSpeed = 1f;
     [SerializeField] private float _jumpForce = 10f;
-    [SerializeField] private float _gravityForce = 1f;
-    
+    [SerializeField] private float _fallGravityForce = 1f;
+    [SerializeField, Range(0.01f, 2f)] private float _jumpCooldown = 0.5f;
+        
     [Header("Visualize")] 
     private SpriteRenderer _spriteRenderer;
     private Animator _animatorController;
     private bool _isMove;
     private bool _isGround;
     private bool _isFacingLeft;
+    private bool _isJumping;
     private static readonly int IsMove = Animator.StringToHash("IsMove");
     private static readonly int IsGround = Animator.StringToHash("IsGround");
     private static readonly int VerticalVelocity = Animator.StringToHash("VerticalVelocity");
@@ -61,19 +63,32 @@ public class CaptainMovement : MonoBehaviour
         {
             if (_isGround)
             {
-                
-                Debug.Log("Jump!");
-                _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+                StartCoroutine(JumpCooldown());
             }
         }
+    }
+
+    private IEnumerator JumpCooldown()
+    {
+        if (_isJumping || !_isGround) yield break;
+
+        Debug.Log("Jump!");
+
+        _isJumping = true;
+        _isGround = false;
+        _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        
+        yield return new WaitForSeconds(_jumpCooldown);
+        _isJumping = false;
     }
     
     private void GroundCheck()
     {
-
+        if (_isJumping) return;
+        
         var hit = Physics2D.OverlapCircle(_feet.position, _feetGroundCheckRadius, _groundLayerMask);
         _isGround = hit != null;
-        //Debug.Log("Hit Ground");
+        
     }
 
     private void VisualizeAnimation()
