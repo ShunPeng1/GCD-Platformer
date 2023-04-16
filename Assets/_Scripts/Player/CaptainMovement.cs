@@ -62,7 +62,6 @@ public class CaptainMovement : MonoBehaviour {
     private void Movement()
     {
         _rigidbody2D.velocity =  new Vector2(_xMove * _movementSpeed, _rigidbody2D.velocity.y);
-        
         _isFacingLeft = _xMove == 0 ? _isFacingLeft : _xMove < 0;
         _isMove = _xMove > 0;
     }
