@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75093526421077335}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.548, z: 0}
+  m_LocalPosition: {x: 0, y: -0.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,11 +133,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _feet: {fileID: 75093526421077336}
-  _feetGroundCheckRadius: 0.1
+  _groundCheckBoxSize: {x: 0.7, y: 0.1}
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 1024
   _movementSpeed: 6
+  _jumpForce: 16
+  _fallGravityForce: 1
+  _jumpCooldown: 0.3
 --- !u!95 &75093526543830400
 Animator:
   serializedVersion: 4
@@ -178,7 +181,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &75093526543830405
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -203,5 +206,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.96, y: 1.12}
+  m_Size: {x: 0.8, y: 1.12}
   m_EdgeRadius: 0
