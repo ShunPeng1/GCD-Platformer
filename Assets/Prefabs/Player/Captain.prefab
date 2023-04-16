@@ -136,7 +136,7 @@ MonoBehaviour:
   _groundCheckBoxSize: {x: 0.75, y: 0.1}
   _groundLayerMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1152
   _movementSpeed: 6
   _jumpForce: 16
   _fallGravityForce: 1
