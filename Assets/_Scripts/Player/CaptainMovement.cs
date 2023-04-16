@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,12 @@ public class CaptainMovement : MonoBehaviour {
     [SerializeField] private LayerMask _groundLayerMask;
     private Rigidbody2D _rigidbody2D;
 
-    [Header("Movement")] 
+    [Header("Movement Input")] 
     [SerializeField] private float _movementSpeed = 1f;
     [SerializeField] private float _jumpForce = 10f;
     [SerializeField] private float _fallGravityForce = 1f;
     [SerializeField, Range(0.01f, 2f)] private float _jumpCooldown = 0.5f;
+    private float _xMove, _yMove;
         
     [Header("Visualize")] 
     private SpriteRenderer _spriteRenderer;
@@ -41,29 +43,36 @@ public class CaptainMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Movement();
-        Jump();
+        GetInput();
         GroundCheck();
         VisualizeAnimation();
     }
 
+    private void FixedUpdate()
+    {
+        Movement();
+        Jump();
+    }
+
+    private void GetInput()
+    {
+        _xMove = Input.GetAxisRaw("Horizontal");
+        _yMove = Input.GetAxisRaw("Vertical");
+    }
+
     private void Movement()
     {
-        float x = Input.GetAxis("Horizontal");
-        _rigidbody2D.velocity =  new Vector2(x * _movementSpeed, _rigidbody2D.velocity.y);
+        _rigidbody2D.velocity =  new Vector2(_xMove * _movementSpeed, _rigidbody2D.velocity.y);
         
-        _isFacingLeft = x == 0 ? _isFacingLeft : x < 0;
-        _isMove = x > 0;
+        _isFacingLeft = _xMove == 0 ? _isFacingLeft : _xMove < 0;
+        _isMove = _xMove > 0;
     }
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (_yMove > 0 && _isGround)
         {
-            if (_isGround)
-            {
-                StartCoroutine(JumpCooldown());
-            }
+            StartCoroutine(JumpCooldown());
         }
     }
 
