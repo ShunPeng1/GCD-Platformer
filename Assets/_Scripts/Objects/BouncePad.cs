@@ -78,6 +78,7 @@ public class BouncePad : MonoBehaviour
             
             if (captainRigidbody2D.velocity.y < 0.1f && _collider.OverlapPoint(feet.position))
             {
+                captainRigidbody2D.velocity = new Vector2(captainRigidbody2D.velocity.x, 0);
                 captainRigidbody2D.AddForce(Vector2.up * _pushForce, ForceMode2D.Force);
                 _animator.SetTrigger(IsBounce);
             }
@@ -87,6 +88,7 @@ public class BouncePad : MonoBehaviour
             Rigidbody2D otherAttachedRigidbody = other.attachedRigidbody;
             if (otherAttachedRigidbody.velocity.y < 0)
             {
+                otherAttachedRigidbody.velocity = new Vector2(otherAttachedRigidbody.velocity.x, 0);
                 otherAttachedRigidbody.AddForce(Vector2.up * _pushForce, ForceMode2D.Force);
                 _animator.SetTrigger(IsBounce);
             }
