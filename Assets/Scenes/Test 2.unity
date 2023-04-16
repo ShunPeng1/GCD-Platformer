@@ -1151,15 +1151,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 5
+  m_LinearDrag: 100
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!61 &766673153
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1764,6 +1764,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3829325261467763712, guid: 93fd6ae36434444429378e0f4cd3e4a6, type: 3}
+      propertyPath: _mouseSensitivity
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3829325261467763714, guid: 93fd6ae36434444429378e0f4cd3e4a6, type: 3}
       propertyPath: m_SortingOrder
       value: 10
@@ -1819,6 +1823,10 @@ PrefabInstance:
     - target: {fileID: 3829325261467763716, guid: 93fd6ae36434444429378e0f4cd3e4a6, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829325261467763716, guid: 93fd6ae36434444429378e0f4cd3e4a6, type: 3}
+      propertyPath: m_TagString
+      value: BirdPlayer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93fd6ae36434444429378e0f4cd3e4a6, type: 3}

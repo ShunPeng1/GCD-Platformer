@@ -29,7 +29,7 @@ public class BirdMovement : MonoBehaviour
     private float moveX,moveY;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animatorController = GetComponent<Animator>();
@@ -37,12 +37,10 @@ public class BirdMovement : MonoBehaviour
         
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         GetInput();
         GroundCheck();
         VisualizeAnimation();
@@ -68,6 +66,7 @@ public class BirdMovement : MonoBehaviour
     }
     private void GroundCheck() {
         var hit = Physics2D.OverlapCircle(_feet.position, _feetGroundCheckRadius, _groundLayerMask);
+
         _isGround = hit != null;
     }
 
