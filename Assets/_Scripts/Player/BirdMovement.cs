@@ -16,7 +16,6 @@ public class BirdMovement : MonoBehaviour
     [SerializeField] private float _mouseSensitivity = 1f;
     private Vector3 _mousePosition;
 
-
     [Header("Visualize")] 
     private SpriteRenderer _spriteRenderer;
     private Animator _animatorController;
