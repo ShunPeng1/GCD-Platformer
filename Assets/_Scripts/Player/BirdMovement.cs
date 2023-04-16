@@ -49,17 +49,19 @@ public class BirdMovement : MonoBehaviour
 
     private void GetInput()
     {
-        _moveX = Input.GetAxisRaw("Mouse X");
-        _moveY = Input.GetAxisRaw("Mouse Y");
+        float x = Input.GetAxisRaw("Mouse X");
+        float y = Input.GetAxisRaw("Mouse Y");
+        _moveX = x != 0 ? x : _moveX;
+        _moveY = y != 0 ? y : _moveY;
     }
 
 
     private void Movement()
     {
         _rigidbody2D.velocity = new Vector2(_moveX, _moveY) * _mouseSensitivity;
-
         _isFacingLeft = _moveX == 0 ? _isFacingLeft : _moveX < 0;
         _isMove = new Vector3(_moveX, _moveY, 0).magnitude > 0;
+        _moveX = _moveY = 0;
     }
 
     private void GroundCheck()

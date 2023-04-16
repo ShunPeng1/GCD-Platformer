@@ -1,21 +1,19 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Collectible;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-public class BlueDiamondCollectible : Collectible
-{
-    //Constant
+public class RedDiamondCollectible : Collectible {
     const string collectAnim = "Collect";
 
-    [SerializeField] private int _point;
+    [Header("Visiualizational")]
     [SerializeField] private Animator _animator;
     [SerializeField] private AudioClip _collectSoundEffect;
 
+    [Header("Info")]
+    [SerializeField] private int _point;
+
     protected override void OnCollect(GameObject player) {
-        Debug.Log("HELLO");
         _animator.Play(collectAnim);
     }
 }
