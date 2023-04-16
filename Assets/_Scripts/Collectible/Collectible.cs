@@ -10,7 +10,7 @@ namespace _Scripts.Collectible
     {
         Coins,
         BlueDiamond,
-        ReadDiamond,
+        RedDiamond,
         Health
     }
 
@@ -29,10 +29,9 @@ namespace _Scripts.Collectible
 
         protected abstract void OnCollect(GameObject player);
 
-        public void DestroyCollectible()
+        public virtual void DestroyCollectible()
         {
             Destroy(gameObject);
         }
-
     }
 }
