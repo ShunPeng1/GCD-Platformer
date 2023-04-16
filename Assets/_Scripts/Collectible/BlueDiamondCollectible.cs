@@ -7,7 +7,7 @@ using UnityEngine;
 public class BlueDiamondCollectible : Collectible
 {
     [SerializeField] private int _point;
-    [SerializeField] private Animation _collect;
+    [SerializeField] private Animator _animator;
     [SerializeField] private AudioClip _collectSoundEffect;
 
     protected override void OnCollect(GameObject player)
