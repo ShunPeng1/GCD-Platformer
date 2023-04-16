@@ -103,11 +103,11 @@ public class CaptainMovement : MonoBehaviour {
         _spriteRenderer.flipX = _isFacingLeft;
         _animatorController.SetBool(IsGround, _isGround);
         _animatorController.SetBool(IsMove, _isMove);
-        _animatorController.SetFloat(VerticalVelocity, 0);
+        _animatorController.SetFloat(VerticalVelocity, Mathf.Clamp( Mathf.Round(_rigidbody2D.velocity.y), -1,1));
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(Feet.position, _groundCheckBoxSize);
+        Gizmos.DrawWireCube(Feet.position,  _groundCheckBoxSize);
     }
 }

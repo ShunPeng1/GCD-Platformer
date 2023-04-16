@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3930bc8f0b8c06c498d1824d27c5a5e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pushForce: 2000
+  _pushForce: 1700
   _minDropSpeed: 1
   _pushLayerMask:
     serializedVersion: 2
