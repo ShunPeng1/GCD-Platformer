@@ -44,6 +44,7 @@ public class CaptainMovement : MonoBehaviour {
     void Update()
     {
         GetInput();
+        Jump();
         GroundCheck();
         VisualizeAnimation();
     }
@@ -51,13 +52,11 @@ public class CaptainMovement : MonoBehaviour {
     private void FixedUpdate()
     {
         Movement();
-        Jump();
     }
 
     private void GetInput()
     {
-        _xMove = Input.GetAxisRaw("Horizontal");
-        _yMove = Input.GetAxisRaw("Vertical");
+        _xMove = Input.GetAxis("Horizontal");
     }
 
     private void Movement()
@@ -70,9 +69,12 @@ public class CaptainMovement : MonoBehaviour {
 
     private void Jump()
     {
-        if (_yMove > 0 && _isGround)
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            StartCoroutine(JumpCooldown());
+            if (_isGround)
+            {
+                StartCoroutine(JumpCooldown());
+            }
         }
     }
 

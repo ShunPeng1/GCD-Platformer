@@ -1584,6 +1584,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 75093526543830406, guid: 7c9f45f3a076d8046a6f980fdb8e5ade, type: 3}
+      propertyPath: _jumpCooldown
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 75093526543830406, guid: 7c9f45f3a076d8046a6f980fdb8e5ade, type: 3}
+      propertyPath: _groundCheckBoxSize.x
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9f45f3a076d8046a6f980fdb8e5ade, type: 3}
 --- !u!1001 &2715687671404932912
