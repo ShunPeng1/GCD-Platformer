@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1259690489}
   m_Layer: 7
   m_Name: Bird
-  m_TagString: Untagged
+  m_TagString: BirdPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  _mouseSensitivity: 25
+  _mouseSensitivity: 40
 --- !u!95 &3829325261467763717
 Animator:
   serializedVersion: 4
