@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3829325260506315694}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3829325261467763717}
   - component: {fileID: 3829325261467763726}
   - component: {fileID: 1259690489}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Bird
   m_TagString: BirdPlayer
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ MonoBehaviour:
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  _mouseSensitivity: 40
+  _mouseSensitivity: 30
 --- !u!95 &3829325261467763717
 Animator:
   serializedVersion: 4

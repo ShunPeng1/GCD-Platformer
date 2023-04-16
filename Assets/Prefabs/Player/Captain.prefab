@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 75093526421077336}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Feet
   m_TagString: CaptainFeet
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 75093526543830400}
   - component: {fileID: 75093526543830404}
   - component: {fileID: 75093526543830405}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Captain
   m_TagString: CaptainPlayer
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 10
   m_Material: {fileID: 6200000, guid: 47a9690b8789dc34db6bf09236d565fc, type: 2}
