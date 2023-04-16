@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 345548855}
   - component: {fileID: 345548854}
   - component: {fileID: 345548858}
+  - component: {fileID: 345548859}
   m_Layer: 0
   m_Name: BouncePad
   m_TagString: Untagged
@@ -237,18 +238,42 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345548852}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3930bc8f0b8c06c498d1824d27c5a5e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitBoxTransform: {fileID: 1873881484}
-  _hitBoxSize: {x: 0.7, y: 0.3}
   _pushForce: 1500
-  _objectLayerMask:
-    serializedVersion: 2
-    m_Bits: 384
   _minDropSpeed: 1
+  _pushLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!61 &345548859
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345548852}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.18691754}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.0015531749}
+    oldSize: {x: 0.6666667, y: 0.375}
+    newSize: {x: 0.5, y: 0.28125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6666667, y: 0.375}
+  m_EdgeRadius: 0
 --- !u!1 &358747682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1156,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 200
   m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 10
@@ -1702,6 +1727,10 @@ PrefabInstance:
     - target: {fileID: 75093526543830402, guid: 7c9f45f3a076d8046a6f980fdb8e5ade, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75093526543830406, guid: 7c9f45f3a076d8046a6f980fdb8e5ade, type: 3}
+      propertyPath: _groundLayerMask.m_Bits
+      value: 1152
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9f45f3a076d8046a6f980fdb8e5ade, type: 3}
