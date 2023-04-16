@@ -12,7 +12,7 @@ public class BouncePad : MonoBehaviour
     [SerializeField] private float _pushForce = 10f;
     [SerializeField] private LayerMask _objectLayerMask;
     [SerializeField] private float _minDropSpeed = 1f;
-    
+    [SerializeField] private int _maxBounceObject = 3;
     [Header("Visualize")]
     private Animator _animator;
 
@@ -25,13 +25,14 @@ public class BouncePad : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var hits = Physics2D.OverlapBoxAll(_hitBoxTransform.position, _hitBoxSize, 0f, _objectLayerMask);
+        Collider2D[] results = new Collider2D[_maxBounceObject];
+        var size = Physics2D.OverlapBoxNonAlloc(_hitBoxTransform.position, _hitBoxSize, 0f,  results, _objectLayerMask);
         
-        if(hits == null) return;
-        
-        foreach (var hit in hits)
+        if(size == 0) return;
+
+        for (int i = 0; i < size; i++)
         {
-            Bounce(hit);
+            Bounce(results[i]);
         }
     }
 
@@ -49,10 +50,10 @@ public class BouncePad : MonoBehaviour
         }
         else
         {
-            Rigidbody2D rigidbody2D = other.attachedRigidbody;
-            if (rigidbody2D.velocity.y < 0)
+            Rigidbody2D otherAttachedRigidbody = other.attachedRigidbody;
+            if (otherAttachedRigidbody.velocity.y < 0)
             {
-                rigidbody2D.AddForce(Vector2.up * _pushForce, ForceMode2D.Force);
+                otherAttachedRigidbody.AddForce(Vector2.up * _pushForce, ForceMode2D.Force);
                 _animator.SetTrigger(IsBounce);
             }
         }
@@ -62,8 +63,6 @@ public class BouncePad : MonoBehaviour
     private bool IsOverLap(Vector2 position)
     {
         var hitBoxPosition = _hitBoxTransform.position;
-        
-
         return position.x >= hitBoxPosition.x - _hitBoxSize.x && position.x <= hitBoxPosition.x + _hitBoxSize.x &&
                position.y >= hitBoxPosition.y - _hitBoxSize.y && position.y <= hitBoxPosition.y + _hitBoxSize.y;
     }
