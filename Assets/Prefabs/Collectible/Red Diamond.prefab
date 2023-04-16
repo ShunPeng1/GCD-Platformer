@@ -138,4 +138,4 @@ MonoBehaviour:
   _collectorTag: CaptainPlayer
   _animator: {fileID: 1985644160454504799}
   _collectSoundEffect: {fileID: 0}
-  _point: 0
+  _point: 5

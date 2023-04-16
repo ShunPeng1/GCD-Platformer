@@ -14,6 +14,7 @@ public class RedDiamondCollectible : Collectible {
     [SerializeField] private int _point;
 
     protected override void OnCollect(GameObject player) {
+        player.GetComponent<Info>().AddPoint(_point);
         _animator.Play(collectAnim);
     }
 }
