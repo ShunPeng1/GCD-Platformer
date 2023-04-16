@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40459dd79dd933d449c99cfd9f3422fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _feet: {fileID: 75093526421077336}
+  Feet: {fileID: 75093526421077336}
   _groundCheckBoxSize: {x: 0.75, y: 0.1}
   _groundLayerMask:
     serializedVersion: 2
