@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BouncePadJump : MonoBehaviour {
     //Constant
-    const string captainPlayer = "CaptainPlayer";
+    const string captainFeet = "CaptainFeet";
     const string workingAnim = "Work";
 
     [Header("Visualize")]
@@ -15,8 +15,8 @@ public class BouncePadJump : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag(captainPlayer)) {
-            if (other.gameObject.name == "Feet") Debug.Log("Found");
+        if (other.gameObject.CompareTag(captainFeet)) {
+            Debug.Log("Found!");
         }
     }
 }
