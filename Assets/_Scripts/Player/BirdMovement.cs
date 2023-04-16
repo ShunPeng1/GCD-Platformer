@@ -35,6 +35,10 @@ public class BirdMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    void Start() {
+        GroundCheck();
+    }
+
     // Update is called once per frame
     void Update() {
         GetInput();
@@ -67,7 +71,6 @@ public class BirdMovement : MonoBehaviour
     private void GroundCheck()
     {
         var hit = Physics2D.OverlapCircle(_feet.position, _feetGroundCheckRadius, _groundLayerMask);
-
         _isGround = hit != null;
     }
 
