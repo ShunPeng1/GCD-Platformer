@@ -25,6 +25,9 @@ public class BirdMovement : MonoBehaviour
     private static readonly int IsMove = Animator.StringToHash("IsMove");
     private static readonly int IsGround = Animator.StringToHash("IsGround");
 
+    //Processing Variables
+    private float moveX,moveY;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,35 +43,41 @@ public class BirdMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        GetInput();
         GroundCheck();
         VisualizeAnimation();
     }
 
-    private void Movement()
-    {
-        float x = Input.GetAxis("Mouse X"), y = Input.GetAxis("Mouse Y");
-        //_mousePosition += new Vector3(x, y, 0) * _mouseSensitivity;
-        _rigidbody2D.velocity = new Vector2(x, y) * _mouseSensitivity;
-            
-        _isFacingLeft = x == 0 ? _isFacingLeft : x < 0;
-        _isMove = new Vector3(x, y, 0).magnitude > 0;
+    void FixedUpdate() {
+        Movement();
     }
-    private void GroundCheck()
-    {
+
+    private void GetInput() {
+        float x = Input.GetAxisRaw("Mouse X");
+        float y = Input.GetAxisRaw("Mouse Y");
+        moveX = x != 0 ? x : moveX;
+        moveY = y != 0 ? y : moveY;
+    }
+
+    private void Movement() {
+        //_mousePosition += new Vector3(x, y, 0) * _mouseSensitivity;
+        _rigidbody2D.velocity = new Vector2(moveX, moveY) * _mouseSensitivity;
+        _isFacingLeft = moveX == 0 ? _isFacingLeft : moveX < 0;
+        _isMove = new Vector3(moveX, moveY, 0).magnitude > 0;
+        moveX = moveY = 0;
+    }
+    private void GroundCheck() {
         var hit = Physics2D.OverlapCircle(_feet.position, _feetGroundCheckRadius, _groundLayerMask);
         _isGround = hit != null;
     }
 
-    private void VisualizeAnimation()
-    {
+    private void VisualizeAnimation() {
         _spriteRenderer.flipX = _isFacingLeft;
         _animatorController.SetBool(IsGround, _isGround);
         _animatorController.SetBool(IsMove, _isMove);
     }
 
-    private void OnDrawGizmos()
-    {
+    private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(_feet.position, _feetGroundCheckRadius);
     }
 }

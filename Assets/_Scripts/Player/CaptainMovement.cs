@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CaptainMovement : MonoBehaviour
-{
+public class CaptainMovement : MonoBehaviour {
     [Header("Physics")] 
     [SerializeField] private Transform _feet;
     [SerializeField] private Vector2 _groundCheckBoxSize = new Vector2(0.01f, 0.01f);
@@ -54,7 +53,7 @@ public class CaptainMovement : MonoBehaviour
         _rigidbody2D.velocity =  new Vector2(x * _movementSpeed, _rigidbody2D.velocity.y);
         
         _isFacingLeft = x == 0 ? _isFacingLeft : x < 0;
-        _isMove = new Vector3(x, 0, 0).magnitude > 0;
+        _isMove = x > 0;
     }
 
     private void Jump()
@@ -82,13 +81,11 @@ public class CaptainMovement : MonoBehaviour
         _isJumping = false;
     }
     
-    private void GroundCheck()
-    {
+    private void GroundCheck() {
         if (_isJumping) return;
         var hit = Physics2D.OverlapBox(_feet.position, _groundCheckBoxSize, 0, _groundLayerMask);
         //var hit = Physics2D.OverlapCircle(_feet.position, _feetGroundCheckRadius, _groundLayerMask);
         _isGround = hit != null;
-        
     }
 
     private void VisualizeAnimation()
