@@ -14,7 +14,7 @@ public class CaptainMovement : MonoBehaviour {
     [Header("Movement Input")] 
     [SerializeField] private float _movementSpeed = 1f;
     [SerializeField] private float _jumpForce = 10f;
-    [SerializeField] private float _fallGravityForce = 1f;
+    [SerializeField] private float _maxSpeed = 10f, _minSpeed = 1f;
     [SerializeField, Range(0.01f, 2f)] private float _jumpCooldown = 0.5f;
     private float _xMove, _yMove;
         
@@ -62,9 +62,21 @@ public class CaptainMovement : MonoBehaviour {
 
     private void Movement()
     {
-        _rigidbody2D.velocity =  new Vector2(_xMove * _movementSpeed, _rigidbody2D.velocity.y);
+        if (_xMove != 0)
+        {
+            _rigidbody2D.AddForce(new Vector2(_xMove * _movementSpeed, 0));
+            _rigidbody2D.velocity = new Vector2( Mathf.Clamp( _rigidbody2D.velocity.x, -_maxSpeed, _maxSpeed), _rigidbody2D.velocity.y);
+        }
+        else
+        {
+            _rigidbody2D.velocity = new Vector2(
+                Mathf.Abs(_rigidbody2D.velocity.x) > _minSpeed ? _rigidbody2D.velocity.x : 0, 
+                _rigidbody2D.velocity.y);   
+        }
+
         _isFacingLeft = _xMove == 0 ? _isFacingLeft : _xMove < 0;
-        _isMove = _xMove > 0;
+        _isMove =_rigidbody2D.velocity.x != 0 ;
+
     }
 
     private void Push()

@@ -18,6 +18,7 @@ public class BouncePad : MonoBehaviour
     [SerializeField] private float _minDropSpeed = 1f;
     [SerializeField] private LayerMask _pushLayerMask;
     private Collider2D _collider;
+    private Vector2 _pushDirection;
     
     [Header("Visualize")]
     private Animator _animator;
@@ -29,8 +30,18 @@ public class BouncePad : MonoBehaviour
     {
         _collider = GetComponent<Collider2D>();
         _animator = GetComponent<Animator>();
+
+        var z = transform.eulerAngles.z;
+        _pushDirection = new Vector2(- Mathf.Sin(z * Mathf.Deg2Rad), Mathf.Cos(z * Mathf.Deg2Rad));
+        Debug.Log("Direction " + _pushDirection);
     }
 
+    private void Update()
+    {
+        var z = transform.eulerAngles.z;
+        _pushDirection = new Vector2(- Mathf.Sin(z * Mathf.Deg2Rad), Mathf.Cos(z * Mathf.Deg2Rad));
+        Debug.Log(z +" Direction " + _pushDirection);
+    }
 
     private void OnTriggerEnter2D (Collider2D other) {
         if (other.gameObject.CompareTag("CaptainPlayer"))
@@ -40,8 +51,8 @@ public class BouncePad : MonoBehaviour
             
             if (captainRigidbody2D.velocity.y < _minDropSpeed && _collider.OverlapPoint(feet.position))
             {
-                captainRigidbody2D.velocity = new Vector2(captainRigidbody2D.velocity.x, 0);
-                captainRigidbody2D.AddForce(Vector2.up * _pushForce, ForceMode2D.Force);
+                captainRigidbody2D.velocity = new Vector2(0, 0);
+                captainRigidbody2D.AddForce(_pushDirection * _pushForce, ForceMode2D.Force);
                 _animator.SetTrigger(IsBounce);
             }
         }
@@ -50,8 +61,8 @@ public class BouncePad : MonoBehaviour
             Rigidbody2D otherAttachedRigidbody = other.attachedRigidbody;
             if (otherAttachedRigidbody.velocity.y < _minDropSpeed)
             {
-                otherAttachedRigidbody.velocity = new Vector2(otherAttachedRigidbody.velocity.x, 0);
-                otherAttachedRigidbody.AddForce(Vector2.up * _pushForce, ForceMode2D.Force);
+                otherAttachedRigidbody.velocity = new Vector2(0, 0);
+                otherAttachedRigidbody.AddForce(_pushDirection * _pushForce, ForceMode2D.Force);
                 _animator.SetTrigger(IsBounce);
             }
         }
@@ -66,8 +77,8 @@ public class BouncePad : MonoBehaviour
             
             if (captainRigidbody2D.velocity.y < _minDropSpeed && _collider.OverlapPoint(feet.position))
             {
-                captainRigidbody2D.velocity = new Vector2(captainRigidbody2D.velocity.x, 0);
-                captainRigidbody2D.AddForce(Vector2.up * _pushForce, ForceMode2D.Force);
+                captainRigidbody2D.velocity = new Vector2(0, 0);
+                captainRigidbody2D.AddForce(_pushDirection * _pushForce, ForceMode2D.Force);
                 _animator.SetTrigger(IsBounce);
             }
         }
@@ -76,8 +87,8 @@ public class BouncePad : MonoBehaviour
             Rigidbody2D otherAttachedRigidbody = other.attachedRigidbody;
             if (otherAttachedRigidbody.velocity.y < _minDropSpeed)
             {
-                otherAttachedRigidbody.velocity = new Vector2(otherAttachedRigidbody.velocity.x, 0);
-                otherAttachedRigidbody.AddForce(Vector2.up * _pushForce, ForceMode2D.Force);
+                otherAttachedRigidbody.velocity = new Vector2(0, 0);
+                otherAttachedRigidbody.AddForce(_pushDirection * _pushForce, ForceMode2D.Force);
                 _animator.SetTrigger(IsBounce);
             }
         }
