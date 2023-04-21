@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3b4a850a55ef61442a022b40333c29dc
+guid: e2b5cb4e7230ecc409c62993a2e6f06f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: button_0
+      name: PurpleButton_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 16
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e31764793ed5bb45a9d7c5f12de110a
-      internalID: -1284699111
+      spriteID: 50512d00dab138f4aad022dfd60d7085
+      internalID: 1928225459
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: button_1
+      name: PurpleButton_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 16
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed186e8094dd4a04e9685cd15585d5fd
-      internalID: 18543596
+      spriteID: d47f95f2730a99c4a8791b47e26d39d6
+      internalID: -2089060366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: button_2
+      name: PurpleButton_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 16
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d14f2911220f5134f9e6e0b345edf9e6
-      internalID: 274130772
+      spriteID: 1bdd1d309aa96544a98ba91ec524675e
+      internalID: 1119651994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: button_3
+      name: PurpleButton_3
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 16
-        height: 16
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d018254c22933954d857edaad769522f
-      internalID: -1373879321
+      spriteID: dc81399dca694954f8ad3b9d9d38b327
+      internalID: -1257707537
       vertices: []
       indices: 
       edges: []
@@ -211,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      button_1: 18543596
-      button_3: -1373879321
-      button_2: 274130772
-      button_0: -1284699111
+      PurpleButton_0: 1928225459
+      PurpleButton_1: -2089060366
+      PurpleButton_3: -1257707537
+      PurpleButton_2: 1119651994
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

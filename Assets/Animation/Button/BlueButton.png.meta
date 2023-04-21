@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3b4a850a55ef61442a022b40333c29dc
+guid: d0c63b49f38e723469c862b24bd60b01
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: button_0
+      name: BlueButton_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 16
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e31764793ed5bb45a9d7c5f12de110a
-      internalID: -1284699111
+      spriteID: 28331e75e277bb9499398ca53472cd83
+      internalID: -1498978982
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: button_1
+      name: BlueButton_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 16
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed186e8094dd4a04e9685cd15585d5fd
-      internalID: 18543596
+      spriteID: c306a696073ae8a4488a4f8a1f1c927f
+      internalID: -1654125095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: button_2
+      name: BlueButton_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 16
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d14f2911220f5134f9e6e0b345edf9e6
-      internalID: 274130772
+      spriteID: 7604c79b0e9a03f4894e51ad22986210
+      internalID: 1004109177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: button_3
+      name: BlueButton_3
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 16
-        height: 16
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d018254c22933954d857edaad769522f
-      internalID: -1373879321
+      spriteID: 101bee6fcafd0ec4f82ba69903a595be
+      internalID: -308904182
       vertices: []
       indices: 
       edges: []
@@ -211,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      button_1: 18543596
-      button_3: -1373879321
-      button_2: 274130772
-      button_0: -1284699111
+      BlueButton_2: 1004109177
+      BlueButton_1: -1654125095
+      BlueButton_3: -308904182
+      BlueButton_0: -1498978982
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

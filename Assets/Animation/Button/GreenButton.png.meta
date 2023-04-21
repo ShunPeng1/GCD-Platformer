@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3b4a850a55ef61442a022b40333c29dc
+guid: 9200455ca4e3978459911d8adbee55cb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: button_0
+      name: GreenButton_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 16
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e31764793ed5bb45a9d7c5f12de110a
-      internalID: -1284699111
+      spriteID: e412a2c82dc4f794d80cdcdcd86090b9
+      internalID: 1728929928
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: button_1
+      name: GreenButton_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 16
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed186e8094dd4a04e9685cd15585d5fd
-      internalID: 18543596
+      spriteID: e714780b756e1854eb482f68c7edc131
+      internalID: 1478528667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: button_2
+      name: GreenButton_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 16
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d14f2911220f5134f9e6e0b345edf9e6
-      internalID: 274130772
+      spriteID: 0a3046e5e283671408937b5f81cde85f
+      internalID: -862833498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: button_3
+      name: GreenButton_3
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 16
-        height: 16
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d018254c22933954d857edaad769522f
-      internalID: -1373879321
+      spriteID: d3c76823461254b42b1375b168e614b5
+      internalID: -370264855
       vertices: []
       indices: 
       edges: []
@@ -211,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      button_1: 18543596
-      button_3: -1373879321
-      button_2: 274130772
-      button_0: -1284699111
+      GreenButton_0: 1728929928
+      GreenButton_1: 1478528667
+      GreenButton_3: -370264855
+      GreenButton_2: -862833498
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
