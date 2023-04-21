@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3471883871305985245}
   - component: {fileID: 3471883871305985246}
+  - component: {fileID: 1897929308114060631}
   - component: {fileID: 3471883871305985247}
   - component: {fileID: 3471883871305985219}
-  - component: {fileID: 3471883871305985244}
   m_Layer: 10
   m_Name: RedButton
   m_TagString: Untagged
@@ -87,6 +87,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1897929308114060631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3471883871305985240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f308b8286990dc41a05c91d18b20c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeLayer:
+    serializedVersion: 2
+    m_Bits: 448
+  IsPressing: 0
+  _buttonActivationColor: 0
+  _activationBars: []
 --- !u!95 &3471883871305985247
 Animator:
   serializedVersion: 4
@@ -133,19 +151,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.32}
   m_EdgeRadius: 0
---- !u!114 &3471883871305985244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3471883871305985240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 864a9086a79fc244a8b2d239a6f14040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _activeLayer:
-    serializedVersion: 2
-    m_Bits: 448
-  IsPressing: 0

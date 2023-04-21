@@ -5,21 +5,23 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class PressButton : MonoBehaviour
+public abstract class PressButton<T> : MonoBehaviour where T : Enum
 {
-    [SerializeField] private LayerMask _activeLayer;
+    [SerializeField] protected LayerMask _activeLayer;
+
     public bool IsPressing = false;
 
-    private Animator _animator;
-    private int _count;
-    private static readonly int Pressing = Animator.StringToHash("IsPressing");
+    protected Animator _animator;
+    protected int _count;
+    protected static readonly int Pressing = Animator.StringToHash("IsPressing");
+    
 
-    private void Start()
+    protected void Awake()
     {
         _animator = GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    protected virtual void OnTriggerEnter2D(Collider2D col)
     {
         if  (((1 << col.gameObject.layer) & _activeLayer) != 0)
         {
@@ -28,13 +30,14 @@ public class PressButton : MonoBehaviour
             {
                 IsPressing = true;
                 _animator.SetBool(Pressing, IsPressing);
+                Active();
             }
 
         }
     }
     
     
-    private void OnTriggerExit2D(Collider2D col)
+    protected virtual void OnTriggerExit2D(Collider2D col)
     {
         if  (((1 << col.gameObject.layer) & _activeLayer) != 0)
         {
@@ -43,7 +46,12 @@ public class PressButton : MonoBehaviour
             {
                 IsPressing = false;
                 _animator.SetBool(Pressing, IsPressing);
+                Inactive();
             }
         }
     }
+
+    protected abstract void Active();
+    protected abstract void Inactive();
+
 }
