@@ -133,15 +133,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Feet: {fileID: 75093526421077336}
+  _movementSpeed: 100
+  _maxSpeed: 5
+  _minSpeed: 5
+  _pushForce: 1
+  _pushObjectLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  _jumpCooldown: 0.2
+  _jumpForce: 16
   _groundCheckBoxSize: {x: 0.75, y: 0.1}
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 1152
-  _movementSpeed: 50
-  _jumpForce: 16
-  _maxSpeed: 6
-  _minSpeed: 5.8
-  _jumpCooldown: 0.2
 --- !u!95 &75093526543830400
 Animator:
   serializedVersion: 4

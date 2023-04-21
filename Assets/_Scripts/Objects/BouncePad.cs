@@ -33,14 +33,6 @@ public class BouncePad : MonoBehaviour
 
         var z = transform.eulerAngles.z;
         _pushDirection = new Vector2(- Mathf.Sin(z * Mathf.Deg2Rad), Mathf.Cos(z * Mathf.Deg2Rad));
-        Debug.Log("Direction " + _pushDirection);
-    }
-
-    private void Update()
-    {
-        var z = transform.eulerAngles.z;
-        _pushDirection = new Vector2(- Mathf.Sin(z * Mathf.Deg2Rad), Mathf.Cos(z * Mathf.Deg2Rad));
-        Debug.Log(z +" Direction " + _pushDirection);
     }
 
     private void OnTriggerEnter2D (Collider2D other) {

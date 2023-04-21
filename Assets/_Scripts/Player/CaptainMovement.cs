@@ -4,20 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CaptainMovement : MonoBehaviour {
-    [Header("Physics")] 
+    [Header("Body part")]
     public Transform Feet;
-    [SerializeField] private Vector2 _groundCheckBoxSize = new Vector2(0.01f, 0.01f);
-    [SerializeField] private LayerMask _groundLayerMask;
-    private Rigidbody2D _rigidbody2D;
     
 
     [Header("Movement Input")] 
     [SerializeField] private float _movementSpeed = 1f;
-    [SerializeField] private float _jumpForce = 10f;
     [SerializeField] private float _maxSpeed = 10f, _minSpeed = 1f;
-    [SerializeField, Range(0.01f, 2f)] private float _jumpCooldown = 0.5f;
+    [SerializeField] private float _pushForce = 1f;
+    [SerializeField] private LayerMask _pushObjectLayerMask;
     private float _xMove, _yMove;
         
+    [Header("Jump")]
+    [SerializeField, Range(0.01f, 2f)] private float _jumpCooldown = 0.5f;
+    [SerializeField] private float _jumpForce = 10f;
+    [SerializeField] private Vector2 _groundCheckBoxSize = new Vector2(0.01f, 0.01f);
+    [SerializeField] private LayerMask _groundLayerMask;
+    
     [Header("Visualize")] 
     private SpriteRenderer _spriteRenderer;
     private Animator _animatorController;
@@ -29,6 +32,9 @@ public class CaptainMovement : MonoBehaviour {
     private static readonly int IsGround = Animator.StringToHash("IsGround");
     private static readonly int VerticalVelocity = Animator.StringToHash("VerticalVelocity");
 
+    [Header("Properties")]
+    private Rigidbody2D _rigidbody2D;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -99,7 +105,7 @@ public class CaptainMovement : MonoBehaviour {
     {
         if (_isJumping || !_isGround) yield break;
 
-        Debug.Log("Jump!");
+        //Debug.Log("Jump!");
 
         _isJumping = true;
         _isGround = false;
@@ -128,6 +134,13 @@ public class CaptainMovement : MonoBehaviour {
     {
         Gizmos.DrawWireCube(Feet.position,  _groundCheckBoxSize);
     }
-    
-    
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if ((_pushObjectLayerMask | (1 << col.gameObject.layer)) == _pushObjectLayerMask)
+        {
+            var direction = (col.transform.position - transform.position);
+            col.rigidbody.AddForce(direction * _pushForce, ForceMode2D.Impulse);
+        }
+    }
 }
