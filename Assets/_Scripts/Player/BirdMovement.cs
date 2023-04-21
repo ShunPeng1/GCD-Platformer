@@ -53,10 +53,10 @@ public class BirdMovement : MonoBehaviour
 
     private void GetInput()
     {
-        float x = Input.GetAxisRaw("Mouse X");
-        float y = Input.GetAxisRaw("Mouse Y");
-        _moveX = x != 0 ? x : _moveX;
-        _moveY = y != 0 ? y : _moveY;
+        _moveX = Input.GetAxis("Mouse X");
+        _moveY = Input.GetAxis("Mouse Y");
+        
+        Debug.Log(_moveX+" "+_moveY);
     }
 
 

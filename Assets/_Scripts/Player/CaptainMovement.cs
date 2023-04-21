@@ -9,6 +9,7 @@ public class CaptainMovement : MonoBehaviour {
     [SerializeField] private Vector2 _groundCheckBoxSize = new Vector2(0.01f, 0.01f);
     [SerializeField] private LayerMask _groundLayerMask;
     private Rigidbody2D _rigidbody2D;
+    
 
     [Header("Movement Input")] 
     [SerializeField] private float _movementSpeed = 1f;
@@ -34,7 +35,7 @@ public class CaptainMovement : MonoBehaviour {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animatorController = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -64,6 +65,11 @@ public class CaptainMovement : MonoBehaviour {
         _rigidbody2D.velocity =  new Vector2(_xMove * _movementSpeed, _rigidbody2D.velocity.y);
         _isFacingLeft = _xMove == 0 ? _isFacingLeft : _xMove < 0;
         _isMove = _xMove > 0;
+    }
+
+    private void Push()
+    {
+        
     }
 
     private void Jump()
@@ -110,4 +116,6 @@ public class CaptainMovement : MonoBehaviour {
     {
         Gizmos.DrawWireCube(Feet.position,  _groundCheckBoxSize);
     }
+    
+    
 }

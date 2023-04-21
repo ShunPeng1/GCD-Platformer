@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7028395311556942806}
   m_Layer: 7
   m_Name: Box
-  m_TagString: Untagged
+  m_TagString: Pushable Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,11 +98,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 150
-  m_LinearDrag: 5
+  m_Mass: 1
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 10
-  m_Material: {fileID: 6200000, guid: ccf0599d6d0428e46b66402249f4f82f, type: 2}
+  m_Material: {fileID: 6200000, guid: a64f2ff09d6eb1d4bbbd12a5f03b9840, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
