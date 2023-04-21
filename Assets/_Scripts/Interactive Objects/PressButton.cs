@@ -26,7 +26,7 @@ public abstract class PressButton<T> : MonoBehaviour where T : Enum
         if  (((1 << col.gameObject.layer) & _activeLayer) != 0)
         {
             _count++;
-            if (_count > 0)
+            if (_count == 1)
             {
                 IsPressing = true;
                 _animator.SetBool(Pressing, IsPressing);

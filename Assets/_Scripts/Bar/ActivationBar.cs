@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Interactive_Objects;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
 using Sequence = DG.Tweening.Sequence;
 
@@ -14,6 +13,7 @@ public class ActivationBar : MonoBehaviour
     [SerializeField] private Vector3 _inactivePosition, _activePosition;
     [SerializeField] private float _movingDuration=  1f;
     [SerializeField] private Ease _ease = Ease.OutCubic;
+    
     private Rigidbody2D _rigidbody2D;
     private Sequence _sequence;
     private Vector3 _destinationPosition;
@@ -56,5 +56,5 @@ public class ActivationBar : MonoBehaviour
         Gizmos.DrawIcon(_inactivePosition + transform.position, "Inactive Position", false, Color.red);
         Gizmos.DrawIcon(_activePosition + transform.position, "Active Position", false, Color.green);
     }
-    
+
 }

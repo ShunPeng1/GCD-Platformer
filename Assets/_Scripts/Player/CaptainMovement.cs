@@ -13,6 +13,7 @@ public class CaptainMovement : MonoBehaviour {
     [SerializeField] private float _maxSpeed = 10f, _minSpeed = 1f;
     [SerializeField] private float _pushForce = 1f;
     [SerializeField] private LayerMask _pushObjectLayerMask;
+    [SerializeField] private LayerMask _movingObjectLayerMask;
     private float _xMove, _yMove;
         
     [Header("Jump")]
@@ -137,10 +138,25 @@ public class CaptainMovement : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if ((_pushObjectLayerMask | (1 << col.gameObject.layer)) == _pushObjectLayerMask)
+        
+        if (((1 << col.gameObject.layer) & (int)_pushObjectLayerMask) != 0)
         {
             var direction = (col.transform.position - transform.position);
             col.rigidbody.AddForce(direction * _pushForce, ForceMode2D.Impulse);
+        }
+        
+        else if (((1 << col.gameObject.layer) & (int)_movingObjectLayerMask) != 0)
+        {
+            
+            transform.SetParent(col.transform);
+        }
+        
+    }
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        if (((1 << col.gameObject.layer) & (int)_movingObjectLayerMask) != 0)
+        {
+            transform.SetParent(null);
         }
     }
 }
