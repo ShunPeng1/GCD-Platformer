@@ -8,11 +8,11 @@ using UnityEngine;
 public class PressButton : MonoBehaviour
 {
     [SerializeField] private LayerMask _activeLayer;
-    public bool IsPress = false;
+    public bool IsPressing = false;
 
     private Animator _animator;
     private int _count;
-    private static readonly int Press = Animator.StringToHash("Press");
+    private static readonly int Pressing = Animator.StringToHash("IsPressing");
 
     private void Start()
     {
@@ -26,8 +26,8 @@ public class PressButton : MonoBehaviour
             _count++;
             if (_count > 0)
             {
-                IsPress = true;
-                _animator.SetFloat(Press, 1f);
+                IsPressing = true;
+                _animator.SetBool(Pressing, IsPressing);
             }
 
         }
@@ -41,8 +41,8 @@ public class PressButton : MonoBehaviour
             _count--;
             if (_count == 0)
             {
-                IsPress = false;
-                _animator.SetFloat(Press, 0f);
+                IsPressing = false;
+                _animator.SetBool(Pressing, IsPressing);
             }
         }
     }
