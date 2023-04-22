@@ -1,18 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+    
+        if (col.gameObject.CompareTag("CaptainPlayer"))
+        {
+            col.gameObject.GetComponent<CaptainMovement>().Kill();
+        }
+    
+        if (col.gameObject.CompareTag("BirdPlayer"))
+        {
+            col.gameObject.GetComponent<BirdMovement>().Kill();
+        }
         
     }
 }

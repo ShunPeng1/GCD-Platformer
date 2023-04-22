@@ -141,11 +141,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _jumpCooldown: 0.2
-  _jumpForce: 16
+  _jumpForce: 18
   _groundCheckBoxSize: {x: 0.75, y: 0.1}
   _groundLayerMask:
     serializedVersion: 2
-    m_Bits: 1152
+    m_Bits: 3200
 --- !u!95 &75093526543830400
 Animator:
   serializedVersion: 4

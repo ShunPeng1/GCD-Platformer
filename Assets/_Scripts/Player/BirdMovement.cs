@@ -20,9 +20,11 @@ public class BirdMovement : MonoBehaviour
     private bool _isMove;
     private bool _isGround;
     private bool _isFacingLeft;
+    private bool _isAlive = true;
     private static readonly int IsMove = Animator.StringToHash("IsMove");
     private static readonly int IsGround = Animator.StringToHash("IsGround");
-    
+    private static readonly int IsAlive = Animator.StringToHash("IsAlive");
+
 
     // Start is called before the first frame update
     void Awake()
@@ -40,7 +42,9 @@ public class BirdMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
+        if (!_isAlive) return;
         GetInput();
         GroundCheck();
         VisualizeAnimation();
@@ -48,6 +52,7 @@ public class BirdMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!_isAlive) return;
         Movement();
     }
 
@@ -70,6 +75,19 @@ public class BirdMovement : MonoBehaviour
     {
         var hit = Physics2D.OverlapCircle(_feet.position, _feetGroundCheckRadius, _groundLayerMask);
         _isGround = hit != null;
+    }
+
+    public void Kill()
+    {
+        _isAlive = false;
+        _animatorController.SetBool(IsAlive, false);
+        _rigidbody2D.velocity = Vector2.zero;
+        
+    }
+
+    public void Dead()
+    {
+        
     }
 
     private void VisualizeAnimation()

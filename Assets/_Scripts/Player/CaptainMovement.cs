@@ -28,13 +28,16 @@ public class CaptainMovement : MonoBehaviour {
     private bool _isGround;
     private bool _isFacingLeft;
     private bool _isJumping;
+    private bool _isAlive = true;
     private static readonly int IsMove = Animator.StringToHash("IsMove");
     private static readonly int IsGround = Animator.StringToHash("IsGround");
     private static readonly int VerticalVelocity = Animator.StringToHash("VerticalVelocity");
 
     [Header("Properties")]
     private Rigidbody2D _rigidbody2D;
-    
+
+    private static readonly int IsAlive = Animator.StringToHash("IsAlive");
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +53,8 @@ public class CaptainMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (!_isAlive) return;
+        
         GetInput();
         Jump();
         GroundCheck();
@@ -58,6 +63,8 @@ public class CaptainMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        if (!_isAlive) return;
+            
         Movement();
     }
 
@@ -84,11 +91,7 @@ public class CaptainMovement : MonoBehaviour {
         _isMove =_rigidbody2D.velocity.x != 0 ;
 
     }
-
-    private void Push()
-    {
-        
-    }
+    
 
     private void Jump()
     {
@@ -122,6 +125,18 @@ public class CaptainMovement : MonoBehaviour {
         _isGround = hit != null;
     }
 
+    public void Kill()
+    {
+        _isAlive = false;
+        _animatorController.SetBool(IsAlive, false);
+        _rigidbody2D.velocity = Vector2.zero;
+    }
+
+    public void Dead()
+    {
+        
+    }
+
     private void VisualizeAnimation()
     {
         _spriteRenderer.flipX = _isFacingLeft;
@@ -134,7 +149,7 @@ public class CaptainMovement : MonoBehaviour {
     {
         Gizmos.DrawWireCube(Feet.position,  _groundCheckBoxSize);
     }
-
+    
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (((1 << col.gameObject.layer) & (int)_pushObjectLayerMask) != 0)
