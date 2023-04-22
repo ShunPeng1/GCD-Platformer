@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private BirdMovement _birdMovement;
+    [SerializeField] private CaptainMovement _captainMovement;
+    
     void Start()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    void LateUpdate()
     {
-        
+        transform.position = new Vector3(_captainMovement.transform.position.x , transform.position.y, transform.position.z);
     }
 }

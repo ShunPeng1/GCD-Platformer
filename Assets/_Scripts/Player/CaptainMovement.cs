@@ -130,11 +130,12 @@ public class CaptainMovement : MonoBehaviour {
         _isAlive = false;
         _animatorController.SetBool(IsAlive, false);
         _rigidbody2D.velocity = Vector2.zero;
+        Invoke(nameof(Dead), 2f);
     }
 
     public void Dead()
     {
-        
+        MySceneManager.Instance.RestartScene();
     }
 
     private void VisualizeAnimation()

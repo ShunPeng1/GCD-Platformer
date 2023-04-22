@@ -6,14 +6,20 @@ using UnityEngine;
 
 public class BirdMovement : MonoBehaviour
 {
-    [Header("Physics")] [SerializeField] private Transform _feet;
+    [Header("Follow Constraint")] 
+    [SerializeField] private CaptainMovement _captainMovement;
+    [SerializeField] private float _maxFollowRadius = 5f, _minFollowRadius = 4f;
+    [SerializeField] private float _followSpeed = 10f;
+    
+    [Header("Mouse Input")] [SerializeField] private float _mouseSensitivity = 1f;
+    private Vector3 _mousePosition;
+    private float _moveX, _moveY;
+
+    [Header("Ground Check")] [SerializeField] private Transform _feet;
     [SerializeField] private float _feetGroundCheckRadius = 1f;
     [SerializeField] private LayerMask _groundLayerMask;
     private Rigidbody2D _rigidbody2D;
 
-    [Header("Mouse Input")] [SerializeField] private float _mouseSensitivity = 1f;
-    private Vector3 _mousePosition;
-    private float _moveX, _moveY;
     
     [Header("Visualize")] private SpriteRenderer _spriteRenderer;
     private Animator _animatorController;
@@ -53,15 +59,25 @@ public class BirdMovement : MonoBehaviour
     void FixedUpdate()
     {
         if (!_isAlive) return;
+        Follow();
         Movement();
     }
-
+    
     private void GetInput()
     {
         _moveX = Input.GetAxisRaw("Mouse X");
         _moveY = Input.GetAxisRaw("Mouse Y");
     }
 
+    private void Follow()
+    {
+        var captainPosition = _captainMovement.transform.position;
+        if ((captainPosition - transform.position).magnitude > _maxFollowRadius)
+        {
+            _rigidbody2D.MovePosition(Vector3.MoveTowards(transform.position, (transform.position - captainPosition).normalized * _minFollowRadius +
+                                                                              captainPosition, _followSpeed * Time.fixedDeltaTime));
+        }
+    }
 
     private void Movement()
     {
@@ -83,11 +99,12 @@ public class BirdMovement : MonoBehaviour
         _animatorController.SetBool(IsAlive, false);
         _rigidbody2D.velocity = Vector2.zero;
         
+        Invoke(nameof(Dead), 2f);
     }
 
     public void Dead()
     {
-        
+        MySceneManager.Instance.RestartScene();
     }
 
     private void VisualizeAnimation()
@@ -100,5 +117,7 @@ public class BirdMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(_feet.position, _feetGroundCheckRadius);
+        Gizmos.DrawWireSphere(_captainMovement.transform.position, _maxFollowRadius);
+        Gizmos.DrawWireSphere(_captainMovement.transform.position, _minFollowRadius);
     }
 }

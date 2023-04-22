@@ -15,7 +15,6 @@ public class BlueDiamondCollectible : Collectible
     [SerializeField] private AudioClip _collectSoundEffect;
 
     protected override void OnCollect(GameObject player) {
-        Debug.Log("HELLO");
         _animator.Play(collectAnim);
     }
 }
