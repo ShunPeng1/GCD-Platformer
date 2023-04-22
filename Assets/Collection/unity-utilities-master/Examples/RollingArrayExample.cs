@@ -7,7 +7,7 @@ namespace UnityUtilities.Examples
         [SerializeField] Transform indicatorObject;
 
         RollingArray<Vector2> mousePositions;
-        Camera mainCamera;
+        Camera _mainCamera;
 
         void Awake()
         {
@@ -15,14 +15,14 @@ namespace UnityUtilities.Examples
             mousePositions = new RollingArray<Vector2>(50);
 
             // Cache a reference to the main camera
-            mainCamera = Camera.main;
+            _mainCamera = Camera.main;
         }
 
         void FixedUpdate()
         {
             // Get the mouse position in a fixed interval
             // If we get to 50 positions, the oldest position will be replaced
-            mousePositions.Append(mainCamera.ScreenToWorldPoint(Input.mousePosition));
+            mousePositions.Append(_mainCamera.ScreenToWorldPoint(Input.mousePosition));
         }
 
         void Update()
